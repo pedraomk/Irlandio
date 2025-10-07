@@ -1,0 +1,246 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat', 'Playfair Display', serif, sans-serif;
+  background-color: #000;
+  color: #eee;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a {
+  color: #00aaff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #0088cc;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #111;
+  color: #00aaff;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.8);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo {
+  position: relative;
+  z-index: 1100;
+  max-width: 150px;
+}
+
+#content {
+  margin-top: 80px; /* Add top margin to avoid content being hidden behind sticky header */
+  flex: 1;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+header.scrolled {
+  background-color: #000;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.9);
+}
+header h1 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+nav a {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+nav a.active,
+nav a:hover {
+  border-bottom: 2px solid #00aaff;
+  color: #00aaff;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('https://cdn.bugatti.com/site/bugatti/master/bugatti-veyron-16-4-grand-sport-vitesse-1920x1080.jpg') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  max-width: 600px;
+}
+.hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.btn-cta {
+  background-color: #00aaff;
+  color: #000;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+.btn-cta:hover {
+  background-color: #0088cc;
+  color: #fff;
+}
+
+/* Main content */
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+section {
+  background: #111;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.8);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: #eee;
+}
+section:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.9);
+}
+section h2 {
+  color: #00aaff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  border-bottom: 2px solid #00aaff;
+  padding-bottom: 0.3rem;
+  max-width: max-content;
+}
+
+/* Cards for models */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.card {
+  background-color: #222;
+  color: #eee;
+  font-weight: 600;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.8);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: default;
+  user-select: none;
+}
+.card:hover {
+  background-color: #00aaff;
+  color: #000;
+}
+
+/* News articles */
+article {
+  background-color: #222;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.8);
+  transition: background-color 0.3s ease;
+}
+article:hover {
+  background-color: #00aaff;
+  color: #000;
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #111;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #222;
+    padding-top: 0.5rem;
+  }
+  main {
+    margin: 1rem;
+    padding: 0;
+  }
+  section {
+    padding: 1.5rem 1rem;
+  }
+}
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  nav a {
+    font-size: 0.9rem;
+  }
+}
