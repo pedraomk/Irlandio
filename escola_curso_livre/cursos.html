@@ -1,0 +1,173 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos - Escola de Cursos Livres</title>
+  <link rel="stylesheet" href="src/css/style.css">
+  <script src="src/js/header.js" defer></script>
+  <script src="src/js/script.js" defer></script>
+</head>
+<body>
+  <div id="header"></div>
+  <main>
+    <div class="tabs">
+      <button onclick="openTab(event,'listaCursos')">Lista</button>
+      <button onclick="openTab(event,'cadastroCurso')">Cadastrar</button>
+      <button onclick="openTab(event,'pesquisaCurso')">Pesquisar</button>
+    </div>
+
+    <section id="listaCursos" class="tab-content">
+      <h2>Cursos Disponíveis</h2>
+      <section class = 'bloco'>
+        <table align="center", id="tabela_itens">
+          <thead>
+            <tr>
+              <th> Curso </th>
+              <th> Categoria </th>
+              <th> Duração </th>
+              <th> # </th>
+            </tr>
+          </thead>
+          <tbody> <!--
+            <tr>
+              <td> Programação Web </td>
+              <td> Tecnologia </td>
+              <td> 8 meses </td>
+              <td> <button>Editar</button> </td>
+            </tr>
+            <tr>
+              <td> Design Gráfico </td>
+              <td> Idiomas </td>
+              <td> 5 meses </td>
+              <td> <button>Editar</button> </td>
+            </tr>
+            <tr>
+              <td> Inglês Básico </td>
+              <td> Design </td>
+              <td> 6 meses </td>
+              <td> <button>Editar</button> </td>
+            </tr> -->
+          </tbody>
+        </table>
+    </section>
+    </section>
+  
+
+    <section id="cadastroCurso" class="tab-content" style="display:none;">
+      <h2>Cadastrar Curso</h2>
+      <form>
+        <label>Nome do Curso: <input type="text"></label><br>
+        <label>Categoria:
+          <select>
+            <option>Tecnologia</option>
+            <option>Idiomas</option>
+            <option>Design</option>
+          </select>
+        </label><br>
+        <label>Duração (meses): <input type="number"></label><br>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section id="pesquisaCurso" class="tab-content" style="display:none;">
+      <h2>Pesquisar Curso</h2>
+      <section class = 'bloco'>
+      <input type="text" placeholder="Digite o nome do curso">
+      <button>Buscar</button>
+      </section>
+    </section>
+  </main>
+</body>
+
+<script>function openTab(evt, tabId) {
+  const contents = document.querySelectorAll(".tab-content");
+  contents.forEach(c => c.style.display = "none"); 
+
+  document.getElementById(tabId).style.display = "block";
+}
+
+function mostrarDuracao() {
+  const select = document.querySelector("select");
+  const duracao = select.value;
+  const label = document.getElementById("duracaoCurso");
+  if (duracao) {
+    label.textContent = "Duração do curso: " + duracao + " meses";
+  } else {
+    label.textContent = "";
+  }
+}
+</script>
+
+<script>
+  // Array de cursos
+  const cursos = [
+    { nome: "Programação Web", categoria: "Tecnologia", duracao: "6 meses" },
+    { nome: "Design Gráfico", categoria: "Tecnologia", duracao: "6 meses" },
+    { nome: "Inglês Básico", categoria: "Idiomas", duracao: "10 meses" },
+    { nome: "Inglês Avançado", categoria: "Idiomas", duracao: "20 meses" },
+    { nome: "Programação Beckend", categoria: "Tecnologia", duracao: "12 meses" }
+  ];
+
+  const tbody = document.querySelector("#tabela_itens tbody");
+
+  // Monta a tabela
+  cursos.forEach(curso => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${curso.nome}</td>
+      <td>${curso.categoria}</td>
+      <td>${curso.duracao}</td>
+      <td><button>Editar</button></td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+</script>
+
+<style>
+  /* Estilização básica da tabela */
+ #tabela_itens {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 10px;
+   font-family: Arial, sans-serif;
+   font-size: 14px;
+ }
+ 
+ /* Cabeçalho */
+ #tabela_itens thead {
+   background-color: #2c3e50;
+   color: #fff;
+ }
+ 
+ #tabela_itens th, 
+ #tabela_itens td {
+   border: 1px solid #ddd;
+   padding: 8px 12px;
+   text-align: left;
+ }
+ 
+ /* Zebra (linhas alternadas) */
+ #tabela_itens tbody tr:nth-child(even) {
+   background-color: #f9f9f9;
+ }
+ 
+ /* Hover nas linhas */
+ #tabela_itens tbody tr:hover {
+   background-color: #eef6ff;
+ }
+ 
+ /* Botão Editar */
+ #tabela_itens button {
+   background-color: #2c3e50;
+   color: white;
+   border: none;
+   padding: 6px 12px;
+   border-radius: 4px;
+   cursor: pointer;
+   transition: background 0.3s;
+ }
+ 
+ #tabela_itens button:hover {
+   background-color: #2c3e50;
+ }
+ </style>

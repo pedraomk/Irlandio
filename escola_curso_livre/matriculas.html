@@ -1,0 +1,87 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos - Escola de Cursos Livres</title>
+  <link rel="stylesheet" href="src/css/style.css">
+  <script src="src/js/header.js" defer></script>
+  <script src="src/js/script.js" defer></script>
+</head>
+<body>
+    <div id="header"></div>
+  <main>
+    <div class="tabs">
+      <button onclick="openTab(event,'listaMatriculas')">Lista</button>
+      <button onclick="openTab(event,'cadastroMatriculas')">Cadastrar</button>
+      <button onclick="openTab(event,'pesquisaMatriculas')">Pesquisar</button>
+    </div>
+
+    <section id="listaMatriculas" class="tab-content">
+      <h2>Matriculas</h2>
+      <section class = 'bloco'>
+      <ul>
+        <li>Pedro Marciniak</li>
+        <li>Lucca Silva</li>
+        <li>Amanda Adames</li>
+        <li>Ana Boni</li>
+      </ul>
+    </section>
+    </section>
+
+    <section id="cadastroMatriculas" class="tab-content" style="display:none;">
+      <h2>Cadastrar Matricula</h2>
+      <form>
+        <label>Aluno: 
+  <input type="text" name="aluno" list="alunos">
+</label><br>
+    <datalist id="alunos">
+        <option value="Pedro Marciniak">
+        <option value="Lucca Silva">
+        <option value="Amanda Adames">
+        <option value="Ana Boni">
+    </datalist>
+        <label>Professor:
+          <select>
+            <option>Irlândio</option>
+            <option>Marcio</option>
+            <option>Diego</option>
+          </select>
+        </label><br>
+        <label>Curso:
+          <select>
+            <option>Tecnologia</option>
+            <option>Idiomas</option>
+            <option>Design</option>
+          </select>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section id="pesquisaMatriculas" class="tab-content" style="display:none;">
+      <h2>Pesquisar Matricula</h2>
+      <section class = 'bloco'>
+      <input type="text" placeholder="Digite o nome do do aluno">
+      <button>Buscar</button>
+      </section>
+    </section>
+  </main>
+</body>
+
+<script>function openTab(evt, tabId) {
+  const contents = document.querySelectorAll(".tab-content");
+  contents.forEach(c => c.style.display = "none");
+
+  document.getElementById(tabId).style.display = "block";
+}
+
+function mostrarDuracao() {
+  const select = document.querySelector("select");
+  const duracao = select.value;
+  const label = document.getElementById("duracaoCurso");
+  if (duracao) {
+    label.textContent = "Duração do curso: " + duracao + " meses";
+  } else {
+    label.textContent = "";
+  }
+}
+</script>
+
+<style>  

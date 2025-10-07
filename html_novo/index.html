@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidades LSO</title>
+    <link rel="stylesheet" href="/html_novo/src/css/style.css">
+    <script src="/html_novo/src/js/script.js" defer></script>
+    <script src="/html_novo/src/js/header.js" defer></script>
+</head>
+
+   <header>
+    <img src="../src/img/logo.png" alt="Banner do Hospital" class="logo">
+    <div class="menu">
+      <h1>Hospital LSO</h1>
+      <nav>
+        <a href="/html_novo/views/consulta.html">Consultas</a>
+        <a href="/html_novo/views/especialidades.html">Especialidades</a>
+        <a href="/html_novo/views/medicos.html">Medicos</a>
+        <a href="/html_novo/views/paciente.html">Pacientes</a>
+      </nav>
+  </div>
+  </header>
+
+  <body>
+
+    <section class="sobre">
+      <h2>Sobre Nós</h2>
+      <p>Somos uma empresa focada em trazer o que á de melhor. Sua saúde e cuidado são nossa maior preocupação.</p>
+      <p>Nossa missão é trazer o melhor do mundo hospitalar para todos e todas.</p>
+    </section>
+
+    <section class="carousel">
+      <h2>Galeria de Fotos</h2>
+      <div class="carousel-container">
+        <img src="/html_novo/src/images/foto1.png" alt="Imagem 1">
+        <img src="/html_novo/src/images/foto2.png" alt="Imagem 2">
+        <img src="/html_novo/src/images/foto3.png" alt="Imagem 3">
+        <img src="/html_novo/src/images/foto4.png" alt="Imagem 4">
+        <img src="/html_novo/src/images/foto5.png" alt="Imagem 5">
+        <img src="/html_novo/src/images/foto6.png" alt="Imagem 6">
+        <img src="/html_novo/src/images/foto7.png" alt="Imagem 7">
+        <img src="/html_novo/src/images/foto8.png" alt="Imagem 8">
+        <img src="/html_novo/src/images/foto9.png" alt="Imagem 9">
+        <img src="/html_novo/src/images/foto10.png" alt="Imagem 10">
+      </div>
+      <div class="indicators"></div>
+      <button class="prev">Anterior</button>
+      <button class="next">Próximo</button>
+    </section>
+
+    <section class="destaques">
+      <h2>Cursos em Destaque</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Programação Web</h3>
+          <p>Aprenda HTML, CSS e JavaScript do zero.</p>
+        </div>
+        <div class="card">
+          <h3>Design Gráfico</h3>
+          <p>Desenvolva sua criatividade com ferramentas digitais.</p>
+        </div>
+        <div class="card">
+          <h3>Inglês Básico</h3>
+          <p>Comunique-se em situações do dia a dia.</p>
+        </div>
+      </div>
+    </section>
+
+</body>
+  <div class="sidebar" id="sidebar">
+    <a href="/html_novo/index.html">🏥 Início</a>
+    <a href="/html_novo/views/consulta.html">🩺 Consultas</a>
+    <a href="/html_novo/views/especialidades.html">💉 Especialidades</a>
+    <a href="/html_novo/views/medicos.html">🧑‍⚕️ Medicos</a>
+    <a href="/html_novo/views/paciente.html">🥼 Pacientes</a>
+  </div>
+<script>
+  ///Função do menu lateral
+    const btn = document.querySelector('toggle-btn');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+
+    btn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      content.classList.toggle('shift');
+    });
+</script>
+  
+</body>
+</html>

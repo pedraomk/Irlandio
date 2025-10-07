@@ -1,0 +1,170 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos - Escola de Cursos Livres</title>
+  <link rel="stylesheet" href="/teste/src/css/style.css">
+  <script src="/teste/src/js/header.js" defer></script>
+  <script src="/teste/src/js/script.js" defer></script>
+</head>
+<body>
+  <div id="header"></div>
+  <main>
+    <div class="tabs">
+      <button onclick="openTab(event,'listaPessoas')">Lista</button>
+      <button onclick="openTab(event,'cadastroPessoas')">Cadastrar</button>
+      <button onclick="openTab(event,'pesquisaPessoas')">Pesquisar</button>
+    </div>
+
+    <section id="listaPessoas" class="tab-content">
+      <h2>Pessoas Cadastradas</h2>
+      <section class = 'bloco'>
+      <ul>
+        <li>Pedro Marciniak</li>
+        <li>Lucca Silva</li>
+        <li>Amanda Adames</li>
+        <li>Ana Boni</li>
+      </ul>
+    </section>
+    </section>
+
+    <section id="cadastroPessoas" class="tab-content" style="display:none;">
+      <h2>Cadastrar Pesooas</h2>
+      <form>
+        <label>Nome: <input type="text"></label><br>
+        <label>Sexo:
+          <select>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Prefiro não responder</option>
+          </select>
+        </label><br>
+        <label>Idade: <input type="number" min="1" max="60"></label><br>
+        <label>CPF: <input type="number"></label><br>
+        <label>Endereço: <input type="text"></label><br>
+        <label>Função: 
+            <select>
+                <option>Adm</option>
+                <option>Professor</option>
+                <option>Aluno</option>
+            </select>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section id="pesquisaPessoas" class="tab-content" style="display:none;">
+      <h2>Pesquisar Pessoa</h2>
+      <section class = 'bloco'>
+      <input type="text" placeholder="Digite o nome da Pessoa">
+      <button>Buscar</button>
+      </section>
+    </section>
+  </main>
+</body>
+
+<script>function openTab(evt, tabId) {
+  const contents = document.querySelectorAll(".tab-content");
+  contents.forEach(c => c.style.display = "none");
+
+  document.getElementById(tabId).style.display = "block";
+}
+
+function mostrarDuracao() {
+  const select = document.querySelector("select");
+  const duracao = select.value;
+  const label = document.getElementById("duracaoCurso");
+  if (duracao) {
+    label.textContent = "Duração do curso: " + duracao + " meses";
+  } else {
+    label.textContent = "";
+  }
+}
+</script>
+
+<style>  
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Estilo do menu */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* escondido por padrão */
+      width: 250px;
+      height: 100%;
+      background: #222;
+      color: white;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: #444;
+    }
+
+    /* Botão para abrir/fechar */
+    .toggle-btn {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #222;
+      color: white;
+      border: none;
+      font-size: 18px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 1000;
+    }
+
+    /* Quando ativo */
+    .sidebar.active {
+      left: 0;
+    }
+
+    /* Conteúdo principal */
+    .content {
+      margin-left: 0;
+      padding: 20px;
+      transition: margin-left 0.3s;
+    }
+
+    .content.shift {
+      margin-left: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="toggle-btn">☰ Menu</button>
+
+  <div class="sidebar" id="sidebar">
+    <a href="/teste/index.html">🏥 Início</a>
+    <a href="/teste/views/consulta.html">🩺 Consultas</a>
+    <a href="/teste/views/especialidades.html">💉 Especialidades</a>
+    <a href="/teste/views/medicos.html">🧑‍⚕️ Medicos</a>
+    <a href="/teste/views/paciente.html">🥼 Pacientes</a>
+  </div>
+
+  <script>
+    const btn = document.querySelector('.toggle-btn');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+
+    btn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+      content.classList.toggle('shift');
+    });
+  </script>
+
+</body>
+</html>

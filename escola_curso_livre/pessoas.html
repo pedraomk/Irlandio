@@ -1,0 +1,82 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Cursos - Escola de Cursos Livres</title>
+  <link rel="stylesheet" href="src/css/style.css">
+  <script src="src/js/header.js" defer></script>
+  <script src="src/js/script.js" defer></script>
+</head>
+<body>
+  <div id="header"></div>
+  <main>
+    <div class="tabs">
+      <button onclick="openTab(event,'listaPessoas')">Lista</button>
+      <button onclick="openTab(event,'cadastroPessoas')">Cadastrar</button>
+      <button onclick="openTab(event,'pesquisaPessoas')">Pesquisar</button>
+    </div>
+
+    <section id="listaPessoas" class="tab-content">
+      <h2>Pessoas Cadastradas</h2>
+      <section class = 'bloco'>
+      <ul>
+        <li>Pedro Marciniak</li>
+        <li>Lucca Silva</li>
+        <li>Amanda Adames</li>
+        <li>Ana Boni</li>
+      </ul>
+    </section>
+    </section>
+
+    <section id="cadastroPessoas" class="tab-content" style="display:none;">
+      <h2>Cadastrar Pesooas</h2>
+      <form>
+        <label>Nome: <input type="text"></label><br>
+        <label>Sexo:
+          <select>
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Prefiro não responder</option>
+          </select>
+        </label><br>
+        <label>Idade: <input type="number" min="1" max="60"></label><br>
+        <label>CPF: <input type="number"></label><br>
+        <label>Endereço: <input type="text"></label><br>
+        <label>Função: 
+            <select>
+                <option>Adm</option>
+                <option>Professor</option>
+                <option>Aluno</option>
+            </select>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section id="pesquisaPessoas" class="tab-content" style="display:none;">
+      <h2>Pesquisar Pessoa</h2>
+      <section class = 'bloco'>
+      <input type="text" placeholder="Digite o nome da Pessoa">
+      <button>Buscar</button>
+      </section>
+    </section>
+  </main>
+</body>
+
+<script>function openTab(evt, tabId) {
+  const contents = document.querySelectorAll(".tab-content");
+  contents.forEach(c => c.style.display = "none");
+
+  document.getElementById(tabId).style.display = "block";
+}
+
+function mostrarDuracao() {
+  const select = document.querySelector("select");
+  const duracao = select.value;
+  const label = document.getElementById("duracaoCurso");
+  if (duracao) {
+    label.textContent = "Duração do curso: " + duracao + " meses";
+  } else {
+    label.textContent = "";
+  }
+}
+</script>
+
+<style>  
